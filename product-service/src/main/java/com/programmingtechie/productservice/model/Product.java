@@ -1,32 +1,24 @@
 package com.programmingtechie.productservice.model;
 
-import java.math.BigDecimal;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@Entity
-@Table(name = "product")
-@Builder
-@Data
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.math.BigDecimal;
+
+@Document(value = "product")
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Builder
+@Data
 public class Product {
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String id;
     private String name;
     private String description;
     private BigDecimal price;
 }
-
